@@ -21,5 +21,8 @@ RUN apt-get update \
 
 ENV PATH=${PATH}:/usr/games
 
-ADD --chown=rstudio batslocal.tgz /home/rstudio/
+ADD --chown=rstudio batslocal.tgz /opt/configs/readonly/rstudio/
+
+RUN mkdir -p /gvl/projects/current && \
+    usermod -d /gvl/projects/current rstudio
 
